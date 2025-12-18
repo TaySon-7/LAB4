@@ -13,7 +13,7 @@ class Chip:
     def __add__(self, other):
         if isinstance(other, Chip):
             if self.color == other.color:
-                return Chip(self.color, self.price + other.price, self.stack + other.stack)
+                return Chip(self.color, self.price, self.stack + other.stack)
             else:
                 raise ColorChipError
         return OtherClassError

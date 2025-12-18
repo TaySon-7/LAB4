@@ -15,6 +15,9 @@ class ChipCollection:
         else:
             return self.lst[key]
 
+    def __setitem__(self, key, value):
+        self.lst[key] = value
+
     def __iter__(self):
         for item in self.lst:
             yield item

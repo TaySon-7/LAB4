@@ -25,3 +25,7 @@ class NotEnoughMoney(Exception):
 class NotEnoughChips(Exception):
     def __init__(self):
         super().__init__(f'У вас недостаточно фишек для продажи')
+
+class StavkaError(Exception):
+    def __init__(self):
+        super().__init__(f'Введена некорректная ставка')
