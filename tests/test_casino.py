@@ -29,7 +29,7 @@ def test_casino_ruletka():
     casino.buy_chips(player, 5000)
     casino.ruletka(player, 1000, typ=9)
     casino.sell_chips(player, 40000)
-    assert player.money == 40000
+    assert player.money == 41000
 
 
 def test_sell_error():

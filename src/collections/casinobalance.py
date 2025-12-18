@@ -4,6 +4,10 @@ from src.errors import NoChipError
 class CasinoBalance:
 
     def __init__(self, dct=None):
+        """
+        Инициализация коллекции баланса казино
+        :param dct:
+        """
         if dct is None or not(isinstance(dct, dict)):
             raise NoChipError
         self.dct = dct

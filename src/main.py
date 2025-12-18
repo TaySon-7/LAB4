@@ -1,4 +1,4 @@
-import sys
+
 
 from src.objects.player import Player
 from src.constants import PRICES, COMMANDS
@@ -6,7 +6,7 @@ from casino import Casino
 
 def main() -> None:
     """
-    Обязательнная составляющая программ, которые сдаются. Является точкой входа в приложение
+    Точка входы в казино
     :return: Данная функция ничего не возвращает
     """
     token = None
@@ -35,7 +35,7 @@ def main() -> None:
         except ValueError:
             print("вы должны ввести ваше имя")
     player = Player(name, money=balance)
-    print("Далее выбирайте из 3 команд: buy [int], sell [int], stavka [int] [int or str] - все вводится в долларах через пробел")
+    print("Далее выбирайте из 3 команд: buy [int], sell [int], ruletka [int] [int or str] - все вводится в долларах через пробел")
     while True:
         token = input().split()
         if len(token) == 1:

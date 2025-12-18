@@ -2,14 +2,27 @@ import random
 from random import randint
 
 from src.objects.player import Player
+from src.objects.goose import WarGoose, HonkGoose
 from src.constants import PRICES
 from casino import Casino
 
-operations = ["buy chips", "sell chips", "rul_stavka_1", "rul_stavka_2", "rul_stavka_3"]
+operations = ["buy chips", "sell chips", "rul_stavka_1", "rul_stavka_2", "rul_stavka_3", "war", "honk"]
 
 def run_simulation(steps: int = 20, seed: int | None = None) -> None:
+    """
+    Запускает симуляцию 20 случайных событий в казино
+    :param steps: количество шагов
+    :param seed: параметр генерации
+    :return: ничего не возвращает
+    """
     casino = Casino([1000, 1000, 1000, 1000], PRICES, seed)
     players = []
+    goose1 = WarGoose("Martin", 100)
+    goose2 = WarGoose("Seriy", 500)
+    goose3 = HonkGoose("Beliy", 250)
+    goose4 = HonkGoose("Donald", 1000)
+    war_gooses = [goose1, goose2]
+    honk_gooses = [goose3, goose4]
     names = ["Maxima", "Fedora", "Artemida", "Vlada" ]
     print("Инициализация игроков и их балансов\n")
     for i in range(4):
@@ -38,6 +51,12 @@ def run_simulation(steps: int = 20, seed: int | None = None) -> None:
             stavka = randint(1, 1000)
             typ = random.choice(["odd", "even"])
             casino.ruletka(player, stavka, typ)
+        elif oper == operations[5]:
+            war_goose = random.choice(war_gooses)
+            casino.war_goose_battle(war_goose, player)
+        elif oper == operations[6]:
+            honk_goose = random.choice(honk_gooses)
+            casino.honk_ring(honk_goose, player)
 
 
 run_simulation()
