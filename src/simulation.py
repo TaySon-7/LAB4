@@ -4,7 +4,7 @@ from random import randint
 from src.objects.player import Player
 from src.objects.goose import WarGoose, HonkGoose
 from src.constants import PRICES
-from casino import Casino
+from src.casino import Casino
 
 operations = ["buy chips", "sell chips", "rul_stavka_1", "rul_stavka_2", "rul_stavka_3", "war", "honk"]
 
